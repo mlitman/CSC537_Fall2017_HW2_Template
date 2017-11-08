@@ -13,6 +13,32 @@ public class LinkedList
         this.head = null;
     }
 
+    public int count()
+    {
+        if(this.head == null)
+        {
+            return 0;
+        }
+        int count = 1;
+        Node currNode = this.head;
+        while(currNode.getNextNode() != null)
+        {
+            currNode = currNode.getNextNode();
+            count++;
+        }
+        return count;
+    }
+
+    public int getAtPos(int pos)
+    {
+        Node currNode = this.head;
+        for(int i = 0; i < pos; i++)
+        {
+            currNode = currNode.getNextNode();
+        }
+        return currNode.getPayload();
+    }
+
     public int removeEnd()
     {
         if(this.head.getNextNode() == null)
